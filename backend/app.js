@@ -482,7 +482,7 @@ app.get('/checkIfHistory', (req, res) => {
 });
 
 //Adds to PatientsAttendAppointment Table
-app.get('/addToPatientSeeAppt', (req, res) => {
+app.get('/  ', (req, res) => {
   let params = req.query;
   let email = params.email;
   let appt_id = params.id;
@@ -499,7 +499,6 @@ app.get('/addToPatientSeeAppt', (req, res) => {
       })
     }
   });
-
 });
 
 //Schedules Appointment
@@ -530,9 +529,16 @@ app.get('/schedule', (req, res) => {
       con.query(sql_try, function (error, results, fields) {
         if (error) throw error;
         else{
-          return res.json({
-            data: results
-          })
+          let sql_try = `INSERT INTO PatientsAttendAppointments (patient, appt, concerns, symptoms) values ("${email_in_use}", ${id}, "${concerns}", "${symptoms}")`;
+          console.log(sql_try);
+          con.query(sql_try, function (error, results, fields) {
+            if (error) throw error;
+            else{
+              return res.json({
+                data: results
+              })
+            }
+          });
         }
       });
     }

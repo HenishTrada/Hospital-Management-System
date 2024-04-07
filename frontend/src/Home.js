@@ -13,8 +13,8 @@ import './App.css';
 const theme = {
   global: {
     colors: {
-      brand: '#4155ef',
-      focus: '#4155ef'
+      brand: '#05092a',
+      focus: '#05092a'
     },
     font: {
       family: 'Lato',
@@ -97,7 +97,7 @@ export class Home extends Component {
         flex={false}
         style={{borderBottom:"1px solid grey"}}
       >
-        <a style={{ color: 'inherit', textDecoration: 'inherit'}} href="/"><Heading level='3' margin='none'>We don't Care</Heading></a>
+        <a style={{ color: 'inherit', textDecoration: 'inherit'}} href="/"><Heading level='3' margin='5px'>DocConnect</Heading></a>
       </Box>
     );
 
@@ -130,7 +130,7 @@ export class Home extends Component {
               align="center">
               <Box align="center" pad="large">
                 <Heading 
-                  color="#4155ef">Welcome Patient
+                  color="#05092a">Welcome Patient!
                 </Heading>
               </Box>
             </Box>

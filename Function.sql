@@ -2,6 +2,8 @@
 
 SET GLOBAL log_bin_trust_function_creators = 1;
 
+use hospital_db;
+
 DELIMITER $$
 CREATE FUNCTION resetPassword(
   oldPassword varchar(30), 

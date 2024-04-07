@@ -16,8 +16,8 @@ const theme = {
   global: {
     colors: {
       brand: '#05092a',
-      focus: "#4155ef",
-      active: "#4155ef",
+      focus: "#05092a",
+      active: "#05092a",
     },
     font: {
       family : 'prime',
