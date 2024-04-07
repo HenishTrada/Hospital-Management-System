@@ -14,7 +14,7 @@ import './App.css';
 const theme = {
     global: {
       colors: {
-        brand: '#4155ef',
+        brand: '#05092a',
         focus: '#4155ef'
       },
       font: {
@@ -61,7 +61,7 @@ export class ViewMedHist extends Component {
         );
 
         const Body = () => (
-            <div className="container" style={{width:"100vw"}}>
+            <div className="container" style={{width:"100vw"}} >
                 <div className="panel panel-default p50 uth-panel">
                     <table className="table table-hover">
                         <thead>

@@ -13,7 +13,7 @@ import './App.css';
 const theme = {
   global: {
     colors: {
-      brand: '#4155ef',
+      brand: '#05092a',
       focus: '#4155ef'
     },
     font: {
@@ -26,7 +26,9 @@ const SidebarButton = ({ label, ...rest }) => (
   <Button plain {...rest}>
     {({ hover }) => (
       <Box
-        background={hover ? "#DADADA" : undefined}
+        border={{ size: 'small', color: 'brand', style: 'solid'}}
+        round = "small"
+        background={hover ? "#4155ef" : undefined}
         pad={{ horizontal: "large", vertical: "medium" }}
       >
         <Text size="large">{label}</Text>
@@ -87,6 +89,7 @@ export class Home extends Component {
   render() {
     const Header = () => (
       <Box
+      border={{ size: 'small', color: '', style: 'solid'}}
         tag='header'
         background='brand'
         pad='small'
@@ -97,7 +100,7 @@ export class Home extends Component {
         flex={false}
         style={{borderBottom:"1px solid grey"}}
       >
-        <a style={{ color: 'inherit', textDecoration: 'inherit'}} href="/"><Heading level='3' margin='none'>We don't Care</Heading></a>
+        <a style={{ color: 'inherit', textDecoration: 'inherit'}} href="/"><Heading level='3' margin='none'>DocConnect</Heading></a>
       </Box>
     );
 
@@ -130,7 +133,7 @@ export class Home extends Component {
               align="center">
               <Box align="center" pad="large">
                 <Heading 
-                  color="#4155ef">Welcome Patient
+                  color="#05092a">Welcome Patient
                 </Heading>
               </Box>
             </Box>
