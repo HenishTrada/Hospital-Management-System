@@ -15,12 +15,12 @@ import './App.css';
 const theme = {
   global: {
     colors: {
-      brand: '#4155ef',
+      brand: '#05092a',
       focus: "#4155ef",
       active: "#4155ef",
     },
     font: {
-      family: 'Lato',
+      family : 'prime',
     },
   },
 };
@@ -58,12 +58,13 @@ class LogIn extends Component {
         <a style={{ color: 'inherit', textDecoration: 'inherit'}} href="/"><Heading level='3' margin='none'>We Care</Heading></a>
         </AppBar>
 
-        <Box
+        <Box 
           fill
           align="center"
           justify="top"
           pad="medium">
-          <Box
+          <Box border={{ size: 'small', color: 'brand', style: 'solid'}}
+            round= "small"
             width="medium"
             pad="medium">
             <Form
@@ -98,6 +99,7 @@ class LogIn extends Component {
                 }
               }
               }>
+              
               <FormField
                 color="#00739D"
                 label="Email"
@@ -129,6 +131,7 @@ class LogIn extends Component {
                   style={{ textAlign: 'center' , margin:'0.5rem'}}
                   fill="horizontal"
                   href="/createAcc" />
+                  
               </Box>
             </Form>
           </Box>
