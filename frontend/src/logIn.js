@@ -78,7 +78,7 @@ class LogIn extends Component {
                     .then(res => res.json())
                     .then(res => {
                       if (res.data.length === 0) {
-                        window.alert("Invalid Log In");
+                        window.alert("Please enter proper email");
                       } else {
                         window.location = "DocHome";
                         console.log(res.data);
@@ -90,7 +90,7 @@ class LogIn extends Component {
                     .then(res => res.json())
                     .then(res => {
                       if (res.data.length === 0) {
-                        window.alert("Invalid Log In");
+                        window.alert("Please enter proper email.");
                       } else {
                         window.location = "/Home";
                         console.log(res.data);

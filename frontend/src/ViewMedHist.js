@@ -61,7 +61,7 @@ export class ViewMedHist extends Component {
         );
 
         const Body = () => (
-            <div className="container" style={{width:"100vw"}}>
+            <div className="container" style={{width:"100vw"}} >
                 <div className="panel panel-default p50 uth-panel">
                     <table className="table table-hover">
                         <thead>

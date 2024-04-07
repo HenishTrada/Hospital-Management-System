@@ -26,7 +26,9 @@ const SidebarButton = ({ label, ...rest }) => (
     <Button plain {...rest}>
         {({ hover }) => (
             <Box
-                background={hover ? "#DADADA" : undefined}
+                border={{ size: 'small', color: 'brand', style: 'solid'}}
+                round = "small"
+                background={hover ? "#4155ef" : undefined}
                 pad={{ horizontal: "large", vertical: "medium" }}
             >
                 <Text size="large">{label}</Text>
