@@ -5,14 +5,15 @@ var path = require('path');
 // var logger = require('morgan');
 var mysql = require('mysql');
 var cors = require('cors');
+const { log } = require('console');
 var port = 3001
 
 //Connection Info
 var con = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'Trada@2004',
-  database: 'hospital',
+  password: '9727686236',
+  database: 'hospital_db',
   multipleStatements: true
 });
 
@@ -79,7 +80,7 @@ app.get('/makeAccount', (req, res) => {
   }
   let sql_statement = `INSERT INTO Patient (email, password, name, address, gender) 
                        VALUES ` + `("${email}", "${password}", "${name}", "${address}", "${gender}")`;
-  console.log(sql_statement);
+  console.log('first sql statement is succesfully executed')
   con.query(sql_statement, function (error, results, fields) {
     if (error) throw error;
     else {
@@ -94,7 +95,26 @@ app.get('/makeAccount', (req, res) => {
   sql_statement='SELECT id FROM MedicalHistory ORDER BY id DESC LIMIT 1;';
   console.log(sql_statement)
   con.query(sql_statement, function (error, results, fields) {
-    if (error) throw error;
+    console.log(results);
+    if(results.length==0){
+      let generated_id = 1;
+      let sql_statement = `INSERT INTO MedicalHistory (id, date, conditions, surgeries, medication) 
+      VALUES ` + `("${generated_id}", curdate(), "${conditions}", "${surgeries}", "${medications}")`;
+      console.log(sql_statement);
+      con.query(sql_statement, function (error, results, fields) {
+        if (error) throw error;
+        else {
+          let sql_statement = `INSERT INTO PatientsFillHistory (patient, history) 
+          VALUES ` + `("${email}",${generated_id})`;
+          console.log(sql_statement);
+          con.query(sql_statement, function (error, results, fields) {
+            if (error) throw error;
+            else {};
+          });
+        };
+      });
+    }
+    else if (error) throw error;
     else {
       let generated_id = results[0].id + 1;
       let sql_statement = `INSERT INTO MedicalHistory (id, date, conditions, surgeries, medication) 
@@ -226,10 +246,10 @@ app.get('/checkDoclogin', (req, res) => {
 
 //Resets Patient Password
 app.post('/resetPasswordPatient', (req, res) => {
-  let something = req.query;
-  let email = something.email;
-  let oldPassword = "" + something.oldPassword;
-  let newPassword = "" + something.newPassword;
+  let query = req.query;
+  let email = query.email;
+  let oldPassword = "" + query.oldPassword;
+  let newPassword = "" + query.newPassword;
   let statement = `UPDATE Patient 
                    SET password = "${newPassword}" 
                    WHERE email = "${email}" 
@@ -240,7 +260,7 @@ app.post('/resetPasswordPatient', (req, res) => {
     else {
       return res.json({
         data: results
-      })
+      });
     };
   });
 });
@@ -285,6 +305,7 @@ app.get('/checkIfApptExists', (req, res) => {
   let cond1, cond2, cond3 = ""
   let params = req.query;
   let email = params.email;
+  console.log(email);
   let doc_email = params.docEmail;
   let startTime = params.startTime;
   let date = params.date;

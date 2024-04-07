@@ -268,7 +268,7 @@ export class SchedulingAppt extends Component {
     return (
       <Grommet theme={theme} full>
         <AppBar>
-        <a style={{ color: 'inherit', textDecoration: 'inherit'}} href="/"><Heading level='3' margin='none'>We Care</Heading></a>
+        <a style={{ color: 'inherit', textDecoration: 'inherit'}} href="/"><Heading level='3' margin='none'>DocConnect</Heading></a>
         </AppBar>
         <Box align="center" pad="small" gap="small">
           <Form
@@ -283,7 +283,8 @@ export class SchedulingAppt extends Component {
                   fetch("http://localhost:3001/checkIfApptExists?email=" + email_in_use + "&startTime=" + theTime + "&date=" + theDate + "&docEmail=" + theDoc)
                     .then(res => res.json())
                     .then(res => {
-                      if ((res.data[0])) {
+                      if (res.length > 0) {
+                        console.log(res);
                         window.alert("Appointment Clash! Try another doctor or date/time");
                       } else {
                         fetch("http://localhost:3001/genApptUID")

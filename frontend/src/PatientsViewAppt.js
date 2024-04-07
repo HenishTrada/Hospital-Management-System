@@ -114,7 +114,7 @@ export class PatientsViewAppointments extends Component {
             <Grommet theme={theme} full>
                 <Box >
                     <AppBar>
-                    <a style={{ color: 'inherit', textDecoration: 'inherit'}} href="/"><Heading level='3' margin='none'>We Care</Heading></a>
+                    <a style={{ color: 'inherit', textDecoration: 'inherit'}} href="/"><Heading level='3' margin='none'>DocConnect</Heading></a>
                     </AppBar>
                     <Body />
                 </Box>
