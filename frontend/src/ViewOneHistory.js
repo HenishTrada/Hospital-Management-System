@@ -60,7 +60,7 @@ export class ViewOneHistory extends Component {
                 align='center'
                 flex={false}
             >
-                <a style={{ color: 'inherit', textDecoration: 'inherit'}} href="/"><Heading level='3' margin='none'>We Care</Heading></a>
+                <a style={{ color: 'inherit', textDecoration: 'inherit'}} href="/"><Heading level='3' margin='none'>DocConnect</Heading></a>
             </Box>
         );
         const Body = () => (
